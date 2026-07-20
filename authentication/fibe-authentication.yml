@@ -1,0 +1,30 @@
+generated: '2026-07-19'
+method: searched
+source: https://www.fibe.in/.well-known/oauth-authorization-server
+summary:
+  types: [oauth2]
+  oauth2_flows: [authorizationCode]
+  pkce: S256
+  dynamic_client_registration: true
+  token_endpoint_auth: none    # public clients
+schemes:
+- name: OAuth2
+  type: oauth2
+  applies_to: Fibe MCP server (https://www.fibe.in/api/mcp)
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://www.fibe.in/api/mcp/oauth/authorize
+    tokenUrl: https://www.fibe.in/api/mcp/oauth/token
+    registrationUrl: https://www.fibe.in/api/mcp/oauth/register
+    code_challenge_methods: [S256]
+    scopes:
+      loan.read: Read loan / eligibility information
+      loan.apply: Submit or initiate a loan application
+  bearer:
+    where: header
+    scheme: Bearer
+notes: >-
+  Fibe's only public machine-facing surface is its MCP server, protected by OAuth 2.0
+  authorization-code flow with PKCE (S256) and RFC 7591 dynamic client registration.
+  No REST/OpenAPI or API-key surface is published. The consumer web/app portal
+  (portal.fibe.in) uses a separate session login not documented for programmatic use.
