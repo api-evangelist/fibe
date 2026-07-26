@@ -1,0 +1,39 @@
+generated: '2026-07-19'
+method: searched
+source: https://www.fibe.in/about-us/
+standards:
+- id: oauth2
+  conforms: true
+  evidence: MCP server protected by OAuth 2.0 authorization-code + PKCE (well-known oauth-authorization-server)
+- id: rfc8414-oauth-authorization-server-metadata
+  conforms: true
+  evidence: /.well-known/oauth-authorization-server returns 200
+- id: rfc9728-oauth-protected-resource-metadata
+  conforms: true
+  evidence: /.well-known/oauth-protected-resource returns 200, advertises MCP resource
+- id: rfc7591-dynamic-client-registration
+  conforms: true
+  evidence: registration_endpoint advertised in authorization-server metadata
+- id: pkce
+  conforms: true
+  evidence: code_challenge_methods_supported=[S256]
+- id: mcp
+  conforms: true
+  evidence: JSON-RPC 2.0 MCP endpoint at https://www.fibe.in/api/mcp (401 without Bearer)
+- id: iso-27001
+  conforms: true
+  evidence: "about-us: 'Fibe is an ISO/IEC 27001-certified lending related services company'"
+- id: soc2
+  conforms: true
+  evidence: "about-us certification badge: 'SOC 2 Certified'"
+- id: pci-dss
+  conforms: true
+  evidence: "about-us: 'With a PCI DSS app-based journey, Fibe offers a 100% digital process'"
+compliance_program:
+  published: true
+  page: https://www.fibe.in/about-us/
+  certifications: [ISO/IEC 27001, SOC 2, PCI DSS]
+notes: >-
+  ISO/IEC 27001, SOC 2, and PCI DSS certifications are published on Fibe's About Us
+  page. Standards conformance for the OAuth/MCP surface is derived from live
+  /.well-known/ metadata probes.

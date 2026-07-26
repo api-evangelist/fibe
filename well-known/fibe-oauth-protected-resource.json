@@ -1,0 +1,1 @@
+{"resource":"https://www.fibe.in/api/mcp","authorization_servers":["https://www.fibe.in"],"bearer_methods_supported":["header"],"scopes_supported":["loan.read","loan.apply"],"resource_documentation":"https://www.fibe.in/mcp/"}

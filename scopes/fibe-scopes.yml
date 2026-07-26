@@ -1,0 +1,24 @@
+generated: '2026-07-19'
+method: searched
+source: https://www.fibe.in/.well-known/oauth-authorization-server
+docs: https://www.fibe.in/mcp/
+schemes:
+- name: OAuth2
+  source: https://www.fibe.in/.well-known/oauth-authorization-server
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://www.fibe.in/api/mcp/oauth/authorize
+    tokenUrl: https://www.fibe.in/api/mcp/oauth/token
+scopes:
+- scope: loan.read
+  description: Read access to a customer's loan and eligibility information.
+  flows: [authorizationCode]
+  sources: [https://www.fibe.in/.well-known/oauth-authorization-server]
+- scope: loan.apply
+  description: Submit or initiate a loan application on the customer's behalf.
+  flows: [authorizationCode]
+  sources: [https://www.fibe.in/.well-known/oauth-authorization-server]
+notes: >-
+  Scopes are advertised verbatim in Fibe's RFC 8414 authorization-server metadata and
+  RFC 9728 protected-resource metadata for the MCP server. Descriptions are curated
+  from the scope names; Fibe's /mcp/ documentation page was not reachable at probe time.

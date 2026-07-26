@@ -1,9 +1,31 @@
 aid: fibe
 name: Fibe
-description: 'Fibe is a company surfaced as a portfolio company of norwest-venture-partners and added
-  to the API Evangelist network as a stub for enrichment. Sector: unknown. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: >-
+  Fibe (formerly EarlySalary) is a digital consumer lending platform in India, founded in
+  2015 and headquartered in Pune. It offers instant personal loans up to Rs 10 lakh, loans
+  against mutual funds, fixed deposits, a co-branded Fibe Axis Bank credit card, insurance,
+  and purpose-driven (BNPL) financing across education, healthcare, travel, e-commerce, and
+  solar. As of March 2026 Fibe reports over Rs 48,000 crore disbursed across 9.8 million loans
+  to 3.3 million customers and 46 million app downloads. Fibe is ISO/IEC 27001, SOC 2, and PCI
+  DSS certified. Notably, Fibe operates a live, OAuth-protected Model Context Protocol (MCP)
+  server that lets AI agents read loan/eligibility information and initiate loan applications
+  (scopes loan.read and loan.apply). Fibe publishes no public REST/OpenAPI developer surface;
+  its machine-facing surface is the MCP server, secured with OAuth 2.0 authorization-code +
+  PKCE and dynamic client registration.
 url: https://raw.githubusercontent.com/api-evangelist/fibe/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://www.fibe.in/Fibe-og-img.png
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -12,16 +34,71 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
-- Unknown
-apis: []
+- Fintech
+- Lending
+- Personal Loans
+- Consumer Finance
+- India
+- Credit
+- MCP
+- Agent
+apis:
+- name: Fibe MCP Server
+  description: >-
+    OAuth-protected Model Context Protocol (JSON-RPC 2.0) server exposing Fibe's consumer
+    lending platform to AI agents. Advertised scopes: loan.read (read loan/eligibility
+    information) and loan.apply (submit a loan application). Auth is OAuth 2.0
+    authorization-code + PKCE (S256) with dynamic client registration.
+  humanURL: https://www.fibe.in/mcp/
+  baseURL: https://www.fibe.in/api/mcp
+  properties:
+  - type: MCPServer
+    url: mcp/fibe-mcp.yml
+  - type: Authentication
+    url: authentication/fibe-authentication.yml
+  - type: OAuthScopes
+    url: scopes/fibe-scopes.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: MCPServer
+  url: mcp/fibe-mcp.yml
+- type: Authentication
+  url: authentication/fibe-authentication.yml
+- type: OAuthScopes
+  url: scopes/fibe-scopes.yml
+- type: WellKnown
+  url: well-known/fibe-well-known.yml
+- type: Conformance
+  url: conformance/fibe-conformance.yml
+- type: Compliance
+  url: https://www.fibe.in/about-us/
+- type: LLMsTxt
+  url: llms/fibe-llms.txt
+- type: DomainSecurity
+  url: security/fibe-domain-security.yml
+- type: DeveloperPortal
+  url: https://www.fibe.in/mcp/
+- type: Blog
+  url: https://www.fibe.in/blogs/
+- type: Support
+  url: https://www.fibe.in/contact-us/
+- type: SignUp
+  url: https://portal.fibe.in/SignUp
+- type: TermsOfService
+  url: https://www.fibe.in/terms-conditions/
+- type: PrivacyPolicy
+  url: https://www.fibe.in/privacy-policy/
 - type: Website
   url: https://fibe.in
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

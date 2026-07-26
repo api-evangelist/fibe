@@ -1,0 +1,24 @@
+generated: '2026-07-19'
+method: searched
+source: live probe of /.well-known/ on Fibe hosts
+host: https://www.fibe.in
+documents:
+- path: /.well-known/oauth-authorization-server   # RFC 8414 authorization server metadata
+  status: 200
+  file: fibe-oauth-authorization-server.json
+- path: /.well-known/oauth-protected-resource      # RFC 9728 protected resource metadata (MCP)
+  status: 200
+  file: fibe-oauth-protected-resource.json
+- path: /.well-known/security.txt                  # RFC 9116
+  status: 404
+- path: /.well-known/openid-configuration           # OIDC discovery
+  status: 404
+- path: /.well-known/api-catalog                     # RFC 9727
+  status: 404
+- path: /.well-known/ai-plugin.json
+  status: 404
+notes: >-
+  Both oauth-authorization-server and oauth-protected-resource resolve on the apex
+  (fibe.in) and www host; portal.fibe.in returns 403 to unauthenticated probes.
+  The protected-resource document advertises the Fibe MCP server (resource
+  https://www.fibe.in/api/mcp). No security.txt, OIDC, or api-catalog published.

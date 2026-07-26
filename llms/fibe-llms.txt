@@ -1,0 +1,38 @@
+# Fibe (formerly EarlySalary)
+
+> Fibe is a digital consumer lending platform in India (founded 2015 as EarlySalary, headquartered in Pune) offering instant personal loans up to Rs 10 lakh, loans against mutual funds, fixed deposits, a co-branded Fibe Axis Bank credit card, insurance, and purpose-driven (BNPL) financing. As of March 2026 it reports 48,000+ crore disbursed across 9.8M loans to 3.3M customers. Fibe runs a live, OAuth-protected Model Context Protocol (MCP) server so AI agents can read loan/eligibility data and initiate loan applications.
+
+## Agent / MCP surface
+- [Fibe MCP server](https://www.fibe.in/api/mcp): OAuth-protected JSON-RPC 2.0 MCP endpoint (scopes loan.read, loan.apply)
+- [MCP documentation](https://www.fibe.in/mcp/): advertised service documentation for the MCP server
+- [OAuth authorization-server metadata](https://www.fibe.in/.well-known/oauth-authorization-server): RFC 8414
+- [OAuth protected-resource metadata](https://www.fibe.in/.well-known/oauth-protected-resource): RFC 9728
+
+## Products
+- [Personal Loan](https://www.fibe.in/personal-loan/)
+- [Loan Against Mutual Funds](https://www.fibe.in/loan-against-mutual-fund/)
+- [Fibe Axis Bank Credit Card](https://www.fibe.in/credit-card/fibe-axis-bank-credit-card/)
+- [Fixed Deposits](https://www.fibe.in/fixed-deposit/)
+- [Purpose-Driven Financing (EMIs / BNPL)](https://www.fibe.in/fibe-emis/)
+
+## Tools
+- [EMI Calculator](https://www.fibe.in/personal-loan-emi-calculator/)
+- [Eligibility Calculator](https://www.fibe.in/personal-loan-eligibility-calculator/)
+- [Credit Score Check](https://www.fibe.in/check-credit-score/)
+
+## Company
+- [About Us](https://www.fibe.in/about-us/)
+- [Careers](https://www.fibe.in/careers/)
+- [Contact Us](https://www.fibe.in/contact-us/)
+- [Investor Relations](https://www.fibe.in/investor-relations/)
+- [Blog](https://www.fibe.in/blogs/)
+- [News](https://www.fibe.in/news/)
+- [Sign In / Portal](https://portal.fibe.in/SignUp)
+
+## Legal & Security
+- [Privacy Policy](https://www.fibe.in/privacy-policy/)
+- [Terms and Conditions](https://www.fibe.in/terms-conditions/)
+- [Grievance Redressal](https://www.fibe.in/grievance-redressal/)
+- [Fair Practice Codes](https://www.fibe.in/fair-code-practices/)
+- [Fraud Prevention](https://www.fibe.in/fraud-prevention/)
+- Certifications: ISO/IEC 27001, SOC 2, PCI DSS
