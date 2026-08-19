@@ -4,30 +4,31 @@ status: published
 source: https://www.fibe.in/.well-known/oauth-protected-resource
 server:
   name: fibe
-  transport: http          # streamable HTTP, JSON-RPC 2.0
+  transport: http
   url: https://www.fibe.in/api/mcp
   documentation: https://www.fibe.in/mcp/
 authorization:
-  # RFC 9728 protected-resource + RFC 8414 authorization-server metadata (both live 200)
   protected_resource_metadata: https://www.fibe.in/.well-known/oauth-protected-resource
   authorization_server_metadata: https://www.fibe.in/.well-known/oauth-authorization-server
   issuer: https://www.fibe.in
   authorization_endpoint: https://www.fibe.in/api/mcp/oauth/authorize
   token_endpoint: https://www.fibe.in/api/mcp/oauth/token
-  registration_endpoint: https://www.fibe.in/api/mcp/oauth/register   # dynamic client registration (RFC 7591)
-  grant_types_supported: [authorization_code, refresh_token]
-  response_types_supported: [code]
-  code_challenge_methods_supported: [S256]                            # PKCE required
-  token_endpoint_auth_methods_supported: [none]                       # public clients
-  bearer_methods_supported: [header]
+  registration_endpoint: https://www.fibe.in/api/mcp/oauth/register
+  grant_types_supported:
+  - authorization_code
+  - refresh_token
+  response_types_supported:
+  - code
+  code_challenge_methods_supported:
+  - S256
+  token_endpoint_auth_methods_supported:
+  - none
+  bearer_methods_supported:
+  - header
 scopes:
 - loan.read
 - loan.apply
 tools:
-  # Verified: the JSON-RPC endpoint returns 401 (Bearer required) to unauthenticated
-  # probes, so the live tools/list could not be enumerated without an OAuth token.
-  # The following are CANDIDATE tools inferred from the advertised OAuth scopes;
-  # names/shapes are not confirmed against the server.
   status: candidate
   inferred_from: scopes
   candidates:
@@ -37,9 +38,14 @@ tools:
   - name: apply_loan
     scope: loan.apply
     description: Submit / initiate a loan application (inferred from loan.apply scope)
-notes: >-
-  Fibe operates a live, OAuth-protected Model Context Protocol server for AI agents,
-  exposing loan read + apply capabilities to its consumer lending platform. Auth is
-  OAuth 2.0 authorization-code + PKCE (S256) with dynamic client registration and
-  public clients; a Bearer token is required on every JSON-RPC call. The advertised
-  service documentation page (/mcp/) returned 404 at probe time.
+notes: Fibe operates a live, OAuth-protected Model Context Protocol server for AI agents, exposing loan
+  read + apply capabilities to its consumer lending platform. Auth is OAuth 2.0 authorization-code + PKCE
+  (S256) with dynamic client registration and public clients; a Bearer token is required on every JSON-RPC
+  call. The advertised service documentation page (/mcp/) returned 404 at probe time.
+deployment:
+  mode: remote
+  endpoint: https://www.fibe.in/api/mcp
+  verified: probed
+  probe: gated
+  checked: '2026-08-12'
+  source: catalog MCP census
