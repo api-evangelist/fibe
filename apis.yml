@@ -44,6 +44,16 @@ tags:
 - India
 - Credit
 - MCP
+- Agents
+tags_raw:
+- Company
+- Fintech
+- Lending
+- Personal Loans
+- Consumer Finance
+- India
+- Credit
+- MCP
 - Agent
 apis:
 - name: Fibe MCP Server
