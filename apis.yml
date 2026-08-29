@@ -13,6 +13,17 @@ description: >-
   its machine-facing surface is the MCP server, secured with OAuth 2.0 authorization-code +
   PKCE and dynamic client registration.
 url: https://raw.githubusercontent.com/api-evangelist/fibe/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
