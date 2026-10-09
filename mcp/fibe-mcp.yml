@@ -49,3 +49,20 @@ deployment:
   probe: gated
   checked: '2026-08-12'
   source: catalog MCP census
+rfc9728:
+  endpoint: https://www.fibe.in/api/mcp
+  metadata_url: https://www.fibe.in/.well-known/oauth-protected-resource
+  discovered_via: WWW-Authenticate resource_metadata on an anonymous POST initialize
+  fetched: '2026-09-25'
+  http_status: 200
+  content_type: application/json
+  document:
+    resource: https://www.fibe.in/api/mcp
+    authorization_servers:
+    - https://www.fibe.in
+    scopes_supported:
+    - loan.read
+    - loan.apply
+    bearer_methods_supported:
+    - header
+    resource_documentation: https://www.fibe.in/mcp-docs/
